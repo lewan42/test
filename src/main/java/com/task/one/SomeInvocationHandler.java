@@ -1,0 +1,17 @@
+package com.task.one;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+
+public class SomeInvocationHandler implements InvocationHandler {
+    private Object obj;
+
+    public SomeInvocationHandler(Object obj) {
+        this.obj = obj;
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        return method.invoke(obj, args);
+    }
+}
